@@ -37,7 +37,7 @@ class ContractSeeder extends Seeder
             if($contract->ContractType == "Standard") {
                 StandardContract::create([
                     'ContractID' => $contract->ContractID,
-                    'FixedPricing' => rand(500, 1500)
+                    'FixedPricing' => $contract->ContractValue
                 ]);
             } else {
                 NonStandardContract::create([

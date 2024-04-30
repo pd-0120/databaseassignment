@@ -20,6 +20,7 @@ class ParcelDelivery extends Model
 
     public $timestamps = false;
 
+    public $with = ['Parcel'];
 
     protected $fillable = [
         'ParcelID',
@@ -28,4 +29,8 @@ class ParcelDelivery extends Model
         'NumberOfAttempts',
         'EmployeeID'
     ];
+
+    public function Parcel () {
+        return $this->belongsTo(Parcel::class, 'ParcelID' , 'ParcelID');
+    }
 }

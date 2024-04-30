@@ -20,6 +20,7 @@ class Parcel extends Model
 
     public $timestamps = false;
 
+    public $with = ['Contract'];
 
     protected $fillable = [
         'ParcelID',
@@ -32,4 +33,8 @@ class Parcel extends Model
         'ReceiverPhone',
         'ContractID'
     ];
+
+    public function Contract() {
+        return $this->belongsTo(Contract::class, 'ContractID', 'ContractID');
+    }
 }

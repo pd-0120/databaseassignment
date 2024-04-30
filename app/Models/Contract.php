@@ -20,6 +20,8 @@ class Contract extends Model
 
     public $timestamps = false;
 
+    protected $with = ['StandardContract', 'NonStandardContract', 'Customer'];
+
 
     protected $fillable = [
         'ContractType',
@@ -29,4 +31,18 @@ class Contract extends Model
         'CustomerID',
         'EmployeeID'
     ];
+
+    public function StandardContract() {
+        return $this->hasOne(StandardContract::class, 'ContractID', 'ContractID');
+    }
+
+    public function NonStandardContract()
+    {
+        return $this->hasOne(NonStandardContract::class, 'ContractID', 'ContractID');
+    }
+
+    public function Customer()
+    {
+        return $this->belongsTo(Customer::class, 'CustomerID', 'CustomerID');
+    }
 }
