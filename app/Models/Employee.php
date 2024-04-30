@@ -17,6 +17,7 @@ class Employee extends Model
      * @var string
      */
     protected $primaryKey = 'EmployeeID';
+    public $timestamps = false;
 
     protected $fillable = [
         'FirstName',

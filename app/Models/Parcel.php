@@ -18,6 +18,9 @@ class Parcel extends Model
      */
     protected $primaryKey = 'ParcelID';
 
+    public $timestamps = false;
+
+
     protected $fillable = [
         'ParcelID',
         'ParcelType',

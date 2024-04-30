@@ -11,8 +11,16 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
+
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            // CustomerSeeder::class,
+            // EmployeeSeeder::class,
+            // LeaderSeeder::class,
+            // ContractSeeder::class,
+            // ParcelSeeder::class,
+        ]);
     }
 }

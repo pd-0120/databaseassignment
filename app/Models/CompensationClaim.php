@@ -18,6 +18,9 @@ class CompensationClaim extends Model
      */
     protected $primaryKey = 'CompensationClaimID';
 
+    public $timestamps = false;
+
+
     protected $fillable = [
         'CustomerID',
         'ParcelID',

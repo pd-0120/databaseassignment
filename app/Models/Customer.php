@@ -17,6 +17,7 @@ class Customer extends Model
      * @var string
      */
     protected $primaryKey = 'CustomerID';
+    public $timestamps = false;
 
     protected $fillable = [
         'FirstName',

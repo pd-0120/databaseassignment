@@ -16,7 +16,9 @@ class StandardContract extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'StandardContractID';
+    protected $primaryKey = 'ContractID';
 
-    protected $fillable = ['FixedPricing', 'StandardContractID'];
+    protected $fillable = ['FixedPricing', 'ContractID'];
+
+    public $timestamps = false;
 }

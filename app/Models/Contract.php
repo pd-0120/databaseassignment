@@ -18,6 +18,9 @@ class Contract extends Model
      */
     protected $primaryKey = 'ContractID';
 
+    public $timestamps = false;
+
+
     protected $fillable = [
         'ContractType',
         'ContractValue',

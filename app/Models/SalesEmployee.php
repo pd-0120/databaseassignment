@@ -18,6 +18,9 @@ class SalesEmployee extends Model
      */
     protected $primaryKey = 'SalesEmployeeID';
 
+    public $timestamps = false;
+
+
     protected $fillable = [
         'EmployeeID',
         'TFN',

@@ -16,10 +16,11 @@ class NonStandardContract extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'NonStandardContractID';
+    protected $primaryKey = 'ContractID';
+    public $timestamps = false;
 
     protected $fillable = [
         'DiscountPercentage',
-        'NonStandardContractID',
+        'ContractID',
     ];
 }

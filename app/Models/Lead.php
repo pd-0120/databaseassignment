@@ -18,6 +18,9 @@ class Lead extends Model
      */
     protected $primaryKey = 'LeadID';
 
+    public $timestamps = false;
+
+
     protected $fillable = [
         'DateRecorded',
         'ParcelEnquiry',

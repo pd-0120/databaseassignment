@@ -18,6 +18,9 @@ class ParcelDelivery extends Model
      */
     protected $primaryKey = 'ParcelDeliveryID';
 
+    public $timestamps = false;
+
+
     protected $fillable = [
         'ParcelID',
         'DeliveryDate',

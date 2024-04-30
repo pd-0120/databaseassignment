@@ -18,6 +18,9 @@ class Invoice extends Model
      */
     protected $primaryKey = 'InvoiceID';
 
+    public $timestamps = false;
+
+
     protected $fillable = [
         'InvoiceDate',
         'InvoiceAmount',

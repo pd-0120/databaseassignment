@@ -18,6 +18,9 @@ class DeliveryEmployee extends Model
      */
     // protected $primaryKey = 'DeliveryEmployeeID';
 
+    public $timestamps = false;
+
+
     protected $fillable = [
         'EmployeeID',
         'ABN'
