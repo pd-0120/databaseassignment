@@ -20,7 +20,7 @@ class ParcelDelivery extends Model
 
     public $timestamps = false;
 
-    public $with = ['Parcel'];
+    public $with = ['Parcel', 'Invoice'];
 
     protected $fillable = [
         'ParcelID',
@@ -32,5 +32,9 @@ class ParcelDelivery extends Model
 
     public function Parcel () {
         return $this->belongsTo(Parcel::class, 'ParcelID' , 'ParcelID');
+    }
+
+    public function Invoice() {
+        return $this->hasOne(Invoice::class, 'ParcelID', 'ParcelID');
     }
 }
