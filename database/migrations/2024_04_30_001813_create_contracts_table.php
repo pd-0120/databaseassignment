@@ -17,8 +17,8 @@ class CreateContractsTable extends Migration
             $table->id('ContractID');
             $table->foreignId('CustomerID')->constrained('Customer', 'CustomerID');
             $table->foreignId('EmployeeID')->constrained('Employee', 'EmployeeID');
-            $table->string('ContractType');
-            $table->string('ContractValue');
+            $table->string('ContractType', 45);
+            $table->string('ContractValue', 45);
             $table->date('StartDate')->nullable();
             $table->date('EndDate')->nullable();
         });

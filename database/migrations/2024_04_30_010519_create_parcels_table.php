@@ -25,7 +25,7 @@ class CreateParcelsTable extends Migration
             $table->string('ReceiverCity')->nullable();
             $table->string('ReceiverState')->nullable();
             $table->integer('ReceiverPincode')->nullable();
-            $table->bigInteger('ReceiverPhone')->nullable();
+            $table->integer('ReceiverPhone')->nullable();
             $table->foreignId('ContractID')->constrained('Contract', 'ContractID');
         });
     }

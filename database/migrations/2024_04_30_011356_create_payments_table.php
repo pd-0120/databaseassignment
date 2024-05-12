@@ -18,7 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->date('PaymentDate')->nullable();
             $table->double('AmountPayable')->default(0.00);
             $table->foreignId('CustomerID')->constrained('Customer', 'CustomerID');
-
+            $table->foreignId('InvoiceID')->constrained('Invoice', 'InvoiceID');
         });
     }
 

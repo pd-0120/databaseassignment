@@ -15,7 +15,7 @@ class CreateDeliveryEmployeesTable extends Migration
     {
         Schema::create('DeliveryEmployee', function (Blueprint $table) {
             $table->foreignId('EmployeeID')->constrained('Employee', 'EmployeeID');
-            $table->string('ABN');
+            $table->integer('ABN');
         });
     }
 

@@ -15,15 +15,20 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('Customer', function (Blueprint $table) {
             $table->id('CustomerID');
-            $table->string('FirstName');
-            $table->string('LastName');
-            $table->string('Street');
-            $table->string('City');
-            $table->string('State');
-            $table->integer('Pincode');
+            $table->string('FirstName',45 );
+            $table->string('LastName', 45);
+            $table->string('Street', 45);
+            $table->string('City', 45);
+            $table->string('State', 45);
+            $table->integer('Pincode', 10);
             $table->bigInteger('Phone');
-            $table->string('Email');
+            $table->string('Email', 45);
             $table->date('DateOfBirth')->nullable();
+        });
+
+        Schema::table('Customer', function (Blueprint $table) {
+            $table->index('LastName');
+            $table->index('Phone');
         });
     }
 

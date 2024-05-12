@@ -14,11 +14,13 @@ class CreateParcelDeliveriesTable extends Migration
     public function up()
     {
         Schema::create('ParcelDelivery', function (Blueprint $table) {
-            $table->id('ParcelID');
+
+            $table->foreignId('ParcelID')->constrained('Parcel', 'ParcelID');
+            $table->foreignId('EmployeeID')->constrained('Employee', 'EmployeeID');
+            $table->primary(['ParcelID', 'EmployeeID']);
             $table->date('DeliveryDate')->nullable();
             $table->enum('DeliveryStatus', ['Delivered', 'Lost', 'Damaged'])->nullable();
             $table->smallInteger('NumberOfAttempts')->default(1);
-            $table->foreignId('EmployeeID')->constrained('Employee', 'EmployeeID');
         });
     }
 

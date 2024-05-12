@@ -18,7 +18,7 @@ class CreateCompensationClaimsTable extends Migration
             $table->foreignId('CustomerID')->constrained('Customer', 'CustomerID');
             $table->foreignId('ParcelID')->constrained('Parcel', 'ParcelID');
             $table->double('ClaimAmount')->default(0.00);
-            $table->string('ClaimReason')->nullable();
+            $table->string('ClaimReason', 200)->nullable();
         });
     }
 
