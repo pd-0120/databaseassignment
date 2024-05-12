@@ -22,7 +22,10 @@ class Customer extends Model
     protected $fillable = [
         'FirstName',
         'LastName',
-        'Address',
+        'Street',
+        'City',
+        'State',
+        'Pincode',
         'Phone',
         'Email',
         'DateOfBirth'

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParcelsTable extends Migration
+class ParcelReceiver extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateParcelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Parcel', function (Blueprint $table) {
-            $table->id('ParcelID');
-            $table->enum('ParcelType', ['Small', 'Medium', 'Large']);
-            $table->double('Length', 10,2)->nullable();
-            $table->double('Width', 10, 2)->nullable();
-            $table->double('Height', 10, 2)->nullable();
+        Schema::create('ParcelReceiver', function (Blueprint $table) {
+            $table->id('ParcelReceiverID');
             $table->string('ReceiverFirstName')->nullable();
             $table->string('ReceiverLastName')->nullable();
             $table->string('ReceiverStreet')->nullable();
@@ -26,7 +22,6 @@ class CreateParcelsTable extends Migration
             $table->string('ReceiverState')->nullable();
             $table->integer('ReceiverPincode')->nullable();
             $table->bigInteger('ReceiverPhone')->nullable();
-            $table->foreignId('ContractID')->constrained('Contract', 'ContractID');
         });
     }
 
@@ -37,6 +32,6 @@ class CreateParcelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Parcel');
+        Schema::dropIfExists('ParcelReceiver');
     }
 }

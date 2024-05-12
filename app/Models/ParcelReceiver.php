@@ -5,29 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Parcel extends Model
+class ParcelReceiver extends Model
 {
     use HasFactory;
 
-    protected $table = "Parcel";
+    protected $table = "ParcelReceiver";
 
     /**
      * The primary key for the model.
      *
      * @var string
      */
-    protected $primaryKey = 'ParcelID';
+    protected $primaryKey = 'ParcelReceiverID';
 
     public $timestamps = false;
 
-    public $with = ['Contract'];
-
-    protected $fillable = [
-        'ParcelID',
-        'ParcelType',
-        'Length',
-        'Width',
-        'Height',
+    public $fillable = [
         'ReceiverFirstName',
         'ReceiverLastName',
         'ReceiverStreet',
@@ -35,10 +28,5 @@ class Parcel extends Model
         'ReceiverState',
         'ReceiverPincode',
         'ReceiverPhone',
-        'ContractID'
     ];
-
-    public function Contract() {
-        return $this->belongsTo(Contract::class, 'ContractID', 'ContractID');
-    }
 }

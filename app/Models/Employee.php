@@ -27,4 +27,9 @@ class Employee extends Model
         'DateOfBirth',
         'TFN'
     ];
+
+
+    public function ParcelDeliveries () {
+        return $this->hasMany(ParcelDelivery::class, 'EmployeeID', 'EmployeeID');
+    }
 }

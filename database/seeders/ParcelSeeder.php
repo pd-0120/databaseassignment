@@ -29,8 +29,12 @@ class ParcelSeeder extends Seeder
                 'Length' => rand(20,40),
                 'Width' => rand(20, 40),
                 'Height' => rand(10, 20),
-                'ReceiverName' => $faker->name(),
-                'ReceiverAddress' => $faker->address(),
+                'ReceiverFirstName' => $faker->firstName(),
+                'ReceiverLastName' => $faker->lastName(),
+                'ReceiverStreet' => $faker->streetName(),
+                'ReceiverCity' => $faker->city(),
+                'ReceiverState' => $faker->state(),
+                'ReceiverPincode' => $faker->postcode(),
                 'ReceiverPhone' => $faker->phoneNumber(),
                 'ContractID' => rand(1,50)
             ]);

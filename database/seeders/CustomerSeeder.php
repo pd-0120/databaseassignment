@@ -23,7 +23,10 @@ class CustomerSeeder extends Seeder
             array_push($customers, [
                 'FirstName' => $faker->firstName(),
                 'LastName' => $faker->lastName(),
-                'Address' => $faker->address(),
+                'Street' => $faker->streetAddress(),
+                'City' => $faker->city(),
+                'State' => $faker->state(),
+                'Pincode' => $faker->postcode(),
                 'Phone' => $faker->phoneNumber(),
                 'Email' => $faker->email(),
                 'DateOfBirth' => $faker->date('Y-m-d', now()->subYears(15))
