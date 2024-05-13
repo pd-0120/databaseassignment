@@ -17,8 +17,8 @@ class CreateLeadsTable extends Migration
             $table->id('LeadID');
             $table->date('DateRecorded');
             $table->enum('ParcelEnquiry', ['Yes', 'No']);
-            $table->foreignId('CustomerID')->constrained('Customer', 'CustomerID');
-            $table->foreignId('EmployeeID')->constrained('Employee', 'EmployeeID');
+            $table->foreignId('CustomerID')->constrained('Customer', 'CustomerID')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreignId('EmployeeID')->constrained('Employee', 'EmployeeID')->onDelete('CASCADE')->onUpdate('CASCADE');
 
         });
     }

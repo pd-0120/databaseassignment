@@ -15,8 +15,8 @@ class CreateCompensationClaimsTable extends Migration
     {
         Schema::create('CompensationClaim', function (Blueprint $table) {
             $table->id('ClaimID');
-            $table->foreignId('CustomerID')->constrained('Customer', 'CustomerID');
-            $table->foreignId('ParcelID')->constrained('Parcel', 'ParcelID');
+            $table->foreignId('CustomerID')->constrained('Customer', 'CustomerID')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreignId('ParcelID')->constrained('Parcel', 'ParcelID')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->double('ClaimAmount')->default(0.00);
             $table->string('ClaimReason', 200)->nullable();
         });

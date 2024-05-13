@@ -15,8 +15,8 @@ class CreateContractsTable extends Migration
     {
         Schema::create('Contract', function (Blueprint $table) {
             $table->id('ContractID');
-            $table->foreignId('CustomerID')->constrained('Customer', 'CustomerID');
-            $table->foreignId('EmployeeID')->constrained('Employee', 'EmployeeID');
+            $table->foreignId('CustomerID')->constrained('Customer', 'CustomerID')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreignId('EmployeeID')->constrained('Employee', 'EmployeeID')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->string('ContractType', 45);
             $table->string('ContractValue', 45);
             $table->date('StartDate')->nullable();

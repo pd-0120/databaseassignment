@@ -28,7 +28,7 @@ class EmployeeSeeder extends Seeder
                 'Phone' => $faker->phoneNumber(),
                 'Email' => $faker->email(),
                 'DateOfBirth' => $faker->date('Y-m-d', now()->subYears(15)),
-                'TFN' => $faker->phoneNumber()
+                'TFN' => $faker->randomNumber(9, true)
             ];
 
             $employee = Employee::create($employee);

@@ -20,7 +20,7 @@ class CreateCustomersTable extends Migration
             $table->string('Street', 45);
             $table->string('City', 45);
             $table->string('State', 45);
-            $table->integer('Pincode', 10);
+            $table->integer('Pincode');
             $table->bigInteger('Phone')->unique();
             $table->string('Email', 45)->unique();
             $table->date('DateOfBirth')->nullable();

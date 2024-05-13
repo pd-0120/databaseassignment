@@ -70,13 +70,14 @@ class WelcomeController extends Controller
 
         // Q5
 
-        // $customers = Customer::select('Customer.*', DB::raw('COUNT(Parcel.ParcelID) as parcels_count'))
-        // ->leftJoin('Contract', 'Contract.CustomerID', 'Customer.CustomerID')
-        // ->leftJoin('Parcel', 'Parcel.ContractID', 'Contract.ContractID')->groupBy('Customer.CustomerID')
-        // ->where('Contract.ContractType', 'NonStandard')
-        // ->orderBy('parcels_count')
-        // ->toSql();
+        $customers = Customer::select('Customer.*', DB::raw('COUNT(Parcel.ParcelID) as parcels_count'))
+        ->leftJoin('Invoice', 'Invoice.CustomerID', 'Customer.CustomerID')
+        ->leftJoin('Parcel', 'Parcel.ParcelID', 'Invoice.ParcelID')
+        ->where('Invoice.DiscountAmount', ">", 0)
+        ->groupBy('Customer.CustomerID')
+        ->orderBy('parcels_count')
+        ->toSql();
 
-        // select `Customer`.*, COUNT(Parcel.ParcelID) as parcels_count from `Customer` left join `Contract` on `Contract`.`CustomerID` = `Customer`.`CustomerID` left join `Parcel` on `Parcel`.`ContractID` = `Contract`.`ContractID` where `Contract`.`ContractType` = "NonStandard" group by `Customer`.`CustomerID` order by `parcels_count` asc
+        // select `Customer`.*, COUNT(Parcel.ParcelID) as parcels_count from `Customer` left join `Invoice` on `Invoice`.`CustomerID` = `Customer`.`CustomerID` left join `Parcel` on `Parcel`.`ParcelID` = `Invoice`.`ParcelID` where `Invoice`.`DiscountAmount` > ? group by `Customer`.`CustomerID` order by `parcels_count` asc
     }
 }

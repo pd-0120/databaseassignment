@@ -14,7 +14,7 @@ class CreateNonStandardContractsTable extends Migration
     public function up()
     {
         Schema::create('NonStandardContract', function (Blueprint $table) {
-            $table->foreignId('ContractID')->constrained('Contract', 'ContractID');
+            $table->foreignId('ContractID')->constrained('Contract', 'ContractID')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->double('DiscountPercentage', 10,2)->nullable();
         });
     }

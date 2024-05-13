@@ -15,8 +15,8 @@ class CreateParcelDeliveriesTable extends Migration
     {
         Schema::create('ParcelDelivery', function (Blueprint $table) {
 
-            $table->foreignId('ParcelID')->constrained('Parcel', 'ParcelID');
-            $table->foreignId('EmployeeID')->constrained('Employee', 'EmployeeID');
+            $table->foreignId('ParcelID')->constrained('Parcel', 'ParcelID')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreignId('EmployeeID')->constrained('Employee', 'EmployeeID')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->primary(['ParcelID', 'EmployeeID']);
             $table->date('DeliveryDate')->nullable();
             $table->enum('DeliveryStatus', ['Delivered', 'Lost', 'Damaged'])->nullable();

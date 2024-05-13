@@ -14,7 +14,7 @@ class CreateStandardContractsTable extends Migration
     public function up()
     {
         Schema::create('StandardContract', function (Blueprint $table) {
-            $table->foreignId('ContractID')->constrained('Contract', 'ContractID');
+            $table->foreignId('ContractID')->constrained('Contract', 'ContractID')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->double('FixedPricing', 10,2)->nullable();
         });
     }

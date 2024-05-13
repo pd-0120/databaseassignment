@@ -24,6 +24,7 @@ class Payment extends Model
     protected $fillable = [
         'PaymentDate',
         'AmountPayable',
-        'CustomerID'
+        'CustomerID',
+        'InvoiceID'
     ];
 }

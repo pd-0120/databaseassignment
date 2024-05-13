@@ -28,7 +28,7 @@ class InvoiceSeeder extends Seeder
             if($contract->ContractType != "Standard") {
                 $NonStandardContract = $contract->NonStandardContract;
                 $DiscountPercentage = $NonStandardContract->DiscountPercentage;
-                $DiscountAmount = $InvoiceAmount/ $DiscountPercentage;
+                $DiscountAmount = number_format($InvoiceAmount / $DiscountPercentage, 2, ".", "");
             }
 
             $InvoiceDate    = $parcelDelivery->DeliveryDate;
@@ -50,7 +50,8 @@ class InvoiceSeeder extends Seeder
             Payment::create([
                 'PaymentDate' => $invoice->DueDate,
                 'AmountPayable' => $invoice->InvoiceAmount - $invoice->DiscountAmount,
-                'CustomerID' => $invoice->CustomerID
+                'CustomerID' => $invoice->CustomerID,
+                'InvoiceID' => $invoice->InvoiceID
             ]);
         }
     }

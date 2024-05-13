@@ -19,8 +19,8 @@ class CreateInvoicesTable extends Migration
             $table->double('InvoiceAmount', 10, 2)->default(0.00);
             $table->date('DueDate')->nullable();
             $table->double('DiscountAmount', 10,2)->default(0.00);
-            $table->foreignId('CustomerID')->constrained('Customer', 'CustomerID');
-            $table->foreignId('ParcelID')->constrained('Parcel', 'ParcelID');
+            $table->foreignId('CustomerID')->constrained('Customer', 'CustomerID')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreignId('ParcelID')->constrained('Parcel', 'ParcelID')->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }
 
